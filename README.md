@@ -1,97 +1,79 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## EGABI Events (Assessment)
 
-# Getting Started
+A feature-driven React Native app (TypeScript) to browse and manage events.
+Users can search by city/keyword, view event details with a map preview, mark favourites, toggle between English/Arabic (RTL), and manage login/signup locally.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+### Folder Structure
 
-## Step 1: Start Metro
+```
+src/
+  common/
+    utils/
+      i18n.ts
+    components/
+      Button.tsx
+      Input.tsx
+  navigation/
+    index.tsx
+  screens/
+    splash/
+      SplashScreen.tsx
+    home/
+      HomeScreen.tsx
+      api/eventsApi.ts
+    eventDetails/
+      EventDetailsScreen.tsx
+    profile/
+      ProfileScreen.tsx
+    login/
+      LoginScreen.tsx
+    signup/
+      SignupScreen.tsx
+  shared/
+    storage/
+      favourites.ts
+      user.ts
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+```
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### Assumptions
+
+- Events API: TicketMaster `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${TICKETMASTER_API_KEY}`.
+- Map preview via `react-native-maps`; set up the API key for ios and android on my own account.
+- Authentication: Login/Signup handled only via local storage (AsyncStorage). No backend integration.
+
+### Setup
 
 ```sh
-# Using npm
+npm install
+# iOS only (macOS):
+cd ios && pod install && cd ..
+```
+
+### Run
+
+```sh
 npm start
-
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
 npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+# or on macOS
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+### Features
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+- Search Events → by keyword + city
+- Event Details → hero image, venue info, description, performers, date/time, and interactive map preview
+- Favourites → persist locally via AsyncStorage
+- Language Toggle → English ↔ Arabic (RTL layout support)
+- Profile → login/logout/signup (local storage only), view user info, change app locale
+- Navigation Flow → Splash → Home → Event Details → Profile
 
-## Step 3: Modify your app
+### Notes
 
-Now that you have successfully run the app, let's make changes!
+- Designed for assessment purposes (offline/local storage, no backend).
+- Can be extended with real authentication & persistent backend.
+- Local only; no hosted live link — run using commands above.
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### Live link
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- Local only; run with commands above.

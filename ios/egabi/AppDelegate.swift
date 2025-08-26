@@ -1,3 +1,4 @@
+import GoogleMaps
 import UIKit
 import React
 import React_RCTAppDelegate
@@ -28,6 +29,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       in: window,
       launchOptions: launchOptions
     )
+
+    GMSServices.provideAPIKey("AIzaSyCCcDLIi_JTqVC6E08okccIbus1G5GGj94")
 
     return true
   }
