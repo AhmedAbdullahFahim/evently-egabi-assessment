@@ -74,6 +74,10 @@ npm run ios
 - Can be extended with real authentication & persistent backend.
 - Local only; no hosted live link — run using commands above.
 
+⚠️ Note on API Keys  
+This project includes restricted API keys (Google Maps + Ticketmaster) so that the reviewers can test the app without extra setup.  
+The keys are restricted to this app’s usage and cannot be abused outside of it.
+
 ### Live link
 
 - Local only; run with commands above.
